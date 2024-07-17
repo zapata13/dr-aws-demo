@@ -7,6 +7,7 @@
       amazon.aws.ec2_instance:
           state: "{{ state }}"
           region: us-east-1
+          wait: false
           instance_ids:
             "{{instances}}"
         
