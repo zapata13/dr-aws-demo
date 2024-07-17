@@ -1,0 +1,17 @@
+---
+- name: Check node status
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Check that a page returns successfully but fail if the word AWESOME is not in the page contents
+      ansible.builtin.uri:
+        url: http://demo-blue-green-887225169.us-east-1.elb.amazonaws.com/
+        return_content: true
+      register: result
+    - name: Print content
+      ansible.builtin.debug:
+        msg: "{{ result.content }}"
+    - name: Using fail to detect is BLUE
+      ansible.builtin.fail:
+        msg: Se devuelve error para control de workflow
+      when: "'GREEN' not in result.content"
