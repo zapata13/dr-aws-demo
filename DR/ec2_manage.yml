@@ -5,9 +5,8 @@
   tasks:
     - name: Update EC2 state
       amazon.aws.ec2_instance:
-          state: restarted
+          state: "{{ state }}"
           region: us-east-1
           instance_ids:
-            - i-0ea65d1023bf36f0b
-            - i-00f2cba50e3fe1734
+            "{{instances}}"
         

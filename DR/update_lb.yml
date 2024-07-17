@@ -21,7 +21,7 @@
                 ForwardConfig:
                   TargetGroups:
                     - TargetGroupArn: arn:aws:elasticloadbalancing:us-east-1:268676095163:targetgroup/blue/5dcb5a34055eb87c
-                      Weight: 0 #blue
+                      Weight: "{{ blue }}" #blue
                     - TargetGroupArn: arn:aws:elasticloadbalancing:us-east-1:268676095163:targetgroup/green/f7df989d6f6d518e
-                      Weight: 1 #green
+                      Weight: "{{ green }}" #green
                   
